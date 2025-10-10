@@ -1,0 +1,93 @@
+@use './variaveis' as *;
+
+
+/* Container principal e Grid de Cards */
+.drivers-container {
+    padding: 0px;
+    max-width: 80%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.cards-grid {
+    display: grid;
+    /* Colunas responsivas: mínimo de 300px por coluna */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+/* Estilo do Card Individual */
+.driver-card {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* Borda lateral com a cor da equipe */
+    border-left: 10px solid; 
+}
+
+.driver-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagem */
+.driver-image-container {
+    // width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.driver-headshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.driver-card:hover .driver-headshot {
+    opacity: 1;
+}
+
+/* Informações */
+.driver-info {
+    padding: 15px;
+}
+
+.driver-name-row {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.driver-number {
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #e10600; /* Vermelho F1 */
+    margin-right: 10px;
+    line-height: 1;
+}
+
+.driver-full-name {
+    font-size: 1.2em;
+    margin: 0;
+    line-height: 1;
+}
+
+.driver-team, .driver-country, .driver-acronym {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.loading, .error-message {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2em;
+}

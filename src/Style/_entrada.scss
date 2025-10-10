@@ -1,0 +1,62 @@
+/* Container principal da tela inteira */
+@use './variaveis' as *;
+.video-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Garante que nada fora do vídeo seja visível */
+  background-color: #000; /* Fundo preto caso o vídeo demore a carregar */
+}
+
+/* O elemento de vídeo em si */
+.video-background {
+  /* Estica o vídeo para cobrir toda a tela, mantendo a proporção */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Coloca o vídeo por baixo do overlay */
+  object-fit: cover; /* Garante que o vídeo preencha o container */
+}
+
+/* Camada de sobreposição para o conteúdo (texto) */
+.content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Coloca o conteúdo por cima do vídeo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* Gradiente escuro para melhorar a leitura do texto sobre o vídeo */
+//   background: rgba(0, 0, 0, 0.4); 
+}
+
+/* Estilo F1 */
+.f1-title {
+  font-family: Arial, sans-serif;
+  font-size: 5rem;
+  color: #FFFFFF; /* Branco */
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  /* Uma sombra sutil em vermelho, se quiser um toque F1 */
+  text-shadow: 2px 2px 5px #E10600; 
+}
+
+.f1-subtitle {
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem;
+  color: #E10600; /* Vermelho F1 */
+  margin-top: 10px;
+}
