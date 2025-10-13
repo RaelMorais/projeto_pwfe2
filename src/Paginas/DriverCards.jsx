@@ -42,7 +42,7 @@ const DriverCards = () => {
 
   return (
     <div className="drivers-container">
-      <h1>Pilotos de F1 (Top {top20Drivers.length})</h1> 
+      <h1 className='centralized-title'>Pilotos F1</h1> 
       <div className="cards-grid">
         {top20Drivers.map((driver) => (
           <DriverCard 

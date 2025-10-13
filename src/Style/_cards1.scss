@@ -1,5 +1,12 @@
 @use './variaveis' as *;
 
+.centralized-title {
+  color: white;          // deixa o texto branco
+  text-align: center;    // centraliza horizontalmente
+  font-size: 2rem;       // tamanho opcional
+  font-weight: 700;      // deixa o texto mais destacado
+}
+
 
 /* Container principal e Grid de Cards */
 .drivers-container {

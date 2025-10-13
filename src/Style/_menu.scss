@@ -1,47 +1,88 @@
-@use './variaveis' as *;
+// Definições de cores (simulando o import de 'variaveis')
+$f1-red: #e60000;
+$dark-bg: #0d0d0d;
+$semi-dark-bg: rgba(0, 0, 0, 0.9);
+$light-text: #f0f0f0;
 
 .menu {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 800px;
+    // 1. Estilo para o Contêiner do Menu (Adaptado de .menuContainer)
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
 
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 1rem;
-  padding: 1rem;
+    background: $semi-dark-bg;
+    border-radius: 1rem;
+    padding: 0.8rem 0.5rem;
+    box-shadow: 0 4px 12px rgba(230, 0, 0, 0.4); // Sombra vermelha F1
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
 }
 
 .menu ul {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap; 
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    // 2. Estilo para a Lista (Adaptado de styles.list)
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .menu li {
-  flex: 1 1 100px; 
-  text-align: center;
+    // 3. Estilo para o Item da Lista (Adaptado de styles.listItem)
+    flex: 1 1 20%;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 50px;
+    
+    // Configuração de Hover (Adaptado de styles.hover)
+    &:hover {
+        background-color: $f1-red;
+        color: #fff;
+        transform: scale(1.05);
+        
+        // Garante que o ícone e o texto mudem de cor no hover
+        figure div, figure figcaption {
+            color: #fff !important; 
+        }
+    }
+}
+
+.menu a {
+    // Garante que o link não tenha sublinhado e herde a cor
+    text-decoration: none;
+    color: inherit;
 }
 
 .menu figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-  color: white;
-  font-size: 1rem;
+    // 5. Estilo para a Figure (Adaptado de styles.figure)
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    color: $light-text; // Texto branco padrão
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    
+    div {
+        // 6. Estilo para o Ícone/Emoji (Adaptado de styles.icon)
+        font-size: 30px; 
+        margin-bottom: 0.2rem; 
+        color: $light-text;
+        transition: color 0.3s;
+    }
+    
+    figcaption {
+        // 7. Estilo para o Caption (Adaptado de styles.caption)
+        font-weight: bold; 
+        font-size: 0.9em;
+    }
 }
-
-.menu img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 0.5rem;
-}
-
-

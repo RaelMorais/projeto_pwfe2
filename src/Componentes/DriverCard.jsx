@@ -6,7 +6,7 @@ const DriverCard = ({ driver }) => {
     full_name, 
     team_name, 
     country_code,
-    headshot_url // URL da foto do piloto
+    headshot_url 
   } = driver;
 
   const key = driver_number; 
