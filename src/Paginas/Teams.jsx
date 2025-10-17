@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-// URL da API
 const TEAMS_API_URL = 'https://raelmorais.github.io/f1_json_data/teams.json';
 
-// Componente para exibir o Card de uma Equipe
 const TeamCard = ({ team }) => {
-  // Simples fallback de imagem (apenas texto)
   const getInitials = (name) => (name ? name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() : 'F1');
   const initials = getInitials(team.name);
 
@@ -15,10 +12,10 @@ const TeamCard = ({ team }) => {
         borderRadius: '8px', 
         margin: '10px', 
         padding: '15px', 
-        minWidth: '280px', // Aumentado para melhor visualização
+        minWidth: '280px', 
         maxWidth: '300px',
-        backgroundColor: '#1a1a1a', // Fundo escuro
-        color: '#f0f0f0', // Texto branco
+        backgroundColor: '#1a1a1a', 
+        color: '#f0f0f0', 
         boxShadow: '0 4px 8px rgba(0,0,0,0.5)',
         transition: 'transform 0.3s ease-in-out',
         cursor: 'pointer'
@@ -44,13 +41,11 @@ const TeamCard = ({ team }) => {
           style={{ maxWidth: '90%', maxHeight: '50px', objectFit: 'contain' }}
           onError={(e) => {
             e.target.style.display = 'none';
-            // Fallback em texto simples
             e.target.parentNode.innerHTML = `<div style="padding: 5px; background: #333; border-radius: 4px; color: #fff; font-weight: bold; font-size: 0.9em;">Logo: ${initials}</div>`;
           }}
         />
       </div>
 
-      {/* Nome, Nacionalidade e Detalhes Adicionais */}
       <h3 style={{ margin: '8px 0', fontSize: '20px', color: '#e60000', borderBottom: '1px solid #444', paddingBottom: '5px' }}> {/* Vermelho vibrante */}
         {team.name}
       </h3>
@@ -58,7 +53,6 @@ const TeamCard = ({ team }) => {
       <div style={{ fontSize: '15px', lineHeight: '1.5' }}>
         <p style={{ margin: '4px 0' }}>Nacionalidade: <strong>{team.nationality || 'N/A'}</strong></p>
         
-        {/* Adicionado a Base (Headquarters) se existir */}
         {team.base && (
           <p style={{ margin: '4px 0' }}>
             Base: {team.base}
@@ -251,5 +245,4 @@ const F1TeamViewer = () => {
   );
 };
 
-// Exporta F1TeamViewer como padrão
 export default F1TeamViewer;
