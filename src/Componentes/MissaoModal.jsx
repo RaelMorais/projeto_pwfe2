@@ -1,6 +1,10 @@
 import { useState } from "react";
-import sucesso from "../assets/win.png";
-import erro from "../assets/raios.png";
+
+// SVGs da internet (pode trocar por outros links se quiser)
+const SUCESSO_SVG =
+  "https://www.svgrepo.com/show/13683/trophy.svg";
+const ERRO_SVG =
+  "https://www.svgrepo.com/show/401979/error-circle.svg";
 
 export function MissaoModal({ missao, onClose, onConcluir }) {
   const [resposta, setResposta] = useState("");
@@ -20,7 +24,7 @@ export function MissaoModal({ missao, onClose, onConcluir }) {
       setResultado("Resposta correta! Parabéns!");
       setStatus("sucesso");
 
-      // ✅ chama a função de concluir após 1s (tempo para mostrar feedback)
+      // chama a função de concluir após 1s (tempo para mostrar feedback)
       setTimeout(() => {
         onConcluir(missao.id);
       }, 1000);
@@ -60,16 +64,16 @@ export function MissaoModal({ missao, onClose, onConcluir }) {
           <p>{resultado}</p>
           {status === "sucesso" && (
             <img
-              src={sucesso}
+              src={SUCESSO_SVG}
               alt="Missão concluída com sucesso"
-              width="100"
+              width="80"
             />
           )}
           {status === "erro" && (
             <img
-              src={erro}
+              src={ERRO_SVG}
               alt="Erro na resposta da missão"
-              width="100"
+              width="80"
             />
           )}
         </div>
